@@ -2,15 +2,15 @@ package linkedLists;
 
 import java.util.HashMap;
 
-public class List {
-	List next =  null;
+public class ListPractice {
+	ListPractice next =  null;
 	int data;
 	
-	public List(int data){
+	public ListPractice(int data){
 		this.data = data;
 		this.next = null;
 	}
-	public List(int[] arr){
+	public ListPractice(int[] arr){
 		this.data = arr[0];
 		for(int i=1; i<arr.length; i++){
 			this.appendToTail(arr[i]);
@@ -18,11 +18,11 @@ public class List {
 	}
 	
 	public void appendToTail(int data){
-		List n = this;
+		ListPractice n = this;
 		while(n.next != null){
 			n = n.next;
 		}
-		n.next = new List(data);
+		n.next = new ListPractice(data);
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class List {
 	 * if the next node is a duplicate then it removes it.
 	 */
 	public void removeDuplicates(){
-		List n = this;
+		ListPractice n = this;
 		
 		HashMap<Integer, Boolean> lookUp = new HashMap<Integer, Boolean>();
 		lookUp.put(n.data, true);
@@ -51,8 +51,8 @@ public class List {
 	 * without using any new data structures.
 	 */
 	public void removeDuplicatesLessMem(){
-		List cur = this;
-		List runner;
+		ListPractice cur = this;
+		ListPractice runner;
 		while(cur != null){
 			runner = cur;
 			while(runner.next != null){
@@ -71,8 +71,8 @@ public class List {
 	 * @param other
 	 * @return
 	 */
-	public boolean isEqual(List other){
-		List n = this;
+	public boolean isEqual(ListPractice other){
+		ListPractice n = this;
 		while(n != null && other != null){
 			if(n.data != other.data){
 				return false;
@@ -87,7 +87,7 @@ public class List {
 	}
 	
 	public void printList(){
-		List n = this;
+		ListPractice n = this;
 		while(n.next !=null){
 			System.out.print(n.data);
 			n=n.next;
